@@ -19,7 +19,6 @@ class TestsListPresenter : MvpPresenter<ITestsListView> {
 
 
     fun attachView() {
-        Log.d("dsdsdsds", "222")
         val tests = testRepository.getTests(SubRX { result, e ->
             if (e != null) e.printStackTrace()
             viewState.showList(result!!)

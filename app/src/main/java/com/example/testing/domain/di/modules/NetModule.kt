@@ -49,7 +49,6 @@ class NetModule {
 
     @Provides
     @Singleton
-    @Named(NAME_CLIENT_WITH_TOKEN_INTERCEPTOR)
     fun provideOkHttpClientWithTokenInterceptor(logger: Interceptor, token: TokenInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.MILLISECONDS)

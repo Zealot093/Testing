@@ -44,7 +44,9 @@ class TestRepository {
         return  test
     }
 
-    fun createTest(test: Test) {
-        testsMock.add(test)
+    fun createTest(observer: SubRX<Test>, test: Test) {
+        rest.createTest(test)
+            .doOnNext { storage.saveTest(it) }
+            .standardSubscribeIO(observer)
     }
 }

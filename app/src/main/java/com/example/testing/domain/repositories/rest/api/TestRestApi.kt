@@ -1,6 +1,7 @@
 package com.example.testing.domain.repositories.rest.api
 
 import com.example.testing.domain.di.modules.NetModule
+import com.example.testing.domain.repositories.models.rest.Test
 import com.example.testing.domain.repositories.rest.IRestClient
 import com.example.testing.domain.repositories.rest.service.ITestRestApiService
 import javax.inject.Inject
@@ -12,5 +13,8 @@ class TestRestApi : ABaseRestApi<ITestRestApiService> {
     constructor(client: IRestClient) : super(client)
 
     fun fetchTests(limit: Int, page: Int)
-        = service.fetchTests(limit, page)
+        = service.fetchTests()
+
+    fun createTest(test: Test)
+        = service.createTest(test)
 }

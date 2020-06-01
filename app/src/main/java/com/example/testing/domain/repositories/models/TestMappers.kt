@@ -7,7 +7,7 @@ import io.realm.RealmList
 fun Test?.toRealm(): TestRealm? {
     this ?: return null
     return TestRealm().let {
-        it.id = id
+        it.id = id ?: 0
         it.author = author.toRealm()
         it.description = desctiption
         it.questions = questions.toRealmList()
@@ -21,7 +21,7 @@ fun TestRealm?.toBase(): Test? {
     return  Test(
         id,
         author.toBase(),
-        description,
+        description ?: "decription",
         questions.toBaseList(),
         title
     )

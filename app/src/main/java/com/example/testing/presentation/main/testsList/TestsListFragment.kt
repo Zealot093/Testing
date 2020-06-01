@@ -19,6 +19,7 @@ class TestsListFragment : ABaseFragment(), ITestsListView {
     @Inject
     @InjectPresenter
     lateinit var presenter: TestsListPresenter
+    lateinit var adapter: TestsListAdapter
 
     @ProvidePresenter
     fun providePresenter() = presenter
@@ -40,7 +41,13 @@ class TestsListFragment : ABaseFragment(), ITestsListView {
     override fun showList(list: MutableList<Test>) {
 
         toast("sss")
-        rvTestsList.adapter = TestsListAdapter(list, { test: Test -> onTestClick(test) })
+        adapter = TestsListAdapter(list, { test: Test -> onTestClick(test) })
+        rvTestsList.adapter = adapter
+
+    }
+
+    override fun insertItem() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     fun onTestClick(test: Test) {

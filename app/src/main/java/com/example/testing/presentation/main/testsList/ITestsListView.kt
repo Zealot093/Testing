@@ -5,4 +5,5 @@ import com.example.testing.presentation.IBaseView
 
 interface ITestsListView : IBaseView {
     fun showList(list: MutableList<Test>)
+    fun insertItem()
 }

@@ -8,7 +8,7 @@ import io.realm.RealmList
 fun Answer?.toRealm(): AnswerRealm? {
     this ?: return null
     return AnswerRealm().let {
-        it.id = id
+        it.id = id ?: 0
         it.is_right = is_right
         it.orderBy = orderBy
         it.right = right
